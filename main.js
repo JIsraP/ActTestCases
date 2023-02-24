@@ -1,17 +1,34 @@
+// Check if a string is alphabetic
+function isAlphabetic(str) {
+    return /^[a-zA-Z\s]+$/.test(str);
+}
+
+// Check existance of a float in a string
+function floatRegex(str){
+    return /-?\d+(\.\d+)/.test(str);
+}
+
 export function nombre(name){
-    if(name.length > 1 && name.length < 16){
-        return "Nombre de bebida valido";
+    if(isAlphabetic(name)){
+        if(name.length > 1 && name.length < 16){
+            return "Nombre de bebida valido";
+        }
+        if(name.length < 2){
+            return "El nombre solo tiene menos de dos caracteres";
+        }
+        if(name.length > 15){
+            return "El nombre tiene mas de quince carcateres";
+        }
     }
-    if(name.length < 2){
-        return "El nombre solo tiene menos de dos caracteres";
-    }
-    if(name.length > 15){
-        return "El nombre tiene mas de quince carcateres";
-    }
+    return "Nombre no es alfabetico";
 }
 
 export function tamanoBebida(lista){
+    if(floatRegex(lista)){
+        return "Tamaño invalido, no puedes utilizar decimales";
+    }
     var arr = lista.split(",")
+    console.log(arr)
     var val = parseInt(arr[0]);
     if(arr.length < 6 && arr.length > 0){
         for(var i = 0; i < arr.length; i++){
@@ -28,7 +45,7 @@ export function tamanoBebida(lista){
         }
         return "Tamaño valido";
     }
-    return "Tamaño invalido";
+    return "Tamaño invalido";    
 }
 
 export function validarBebida(string){
