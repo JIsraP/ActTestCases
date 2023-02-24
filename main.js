@@ -8,8 +8,9 @@ function floatRegex(str){
     return /-?\d+(\.\d+)/.test(str);
 }
 
+// Check existance of numeric values in a string
 function onlyNumbers(str){
-    return /^[\d,\s]*$/.test(str);
+    return /^[-?\d,\s]*$/.test(str);
 }
 
 export function nombre(name){
@@ -65,6 +66,5 @@ export function validarBebida(string){
     if(tamano.length > 0 && nombre(name) == "Nombre de bebida valido" && tamanoBebida(strTamano) == "Tamaño valido"){
         return "Bebida valida";
     }
-    return "No se definio un tamaño en la bebida"
+    return "Bebida invalida"
 }
-
