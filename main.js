@@ -8,6 +8,10 @@ function floatRegex(str){
     return /-?\d+(\.\d+)/.test(str);
 }
 
+function onlyNumbers(str){
+    return /^[\d,\s]*$/.test(str);
+}
+
 export function nombre(name){
     if(isAlphabetic(name)){
         if(name.length > 1 && name.length < 16){
@@ -27,8 +31,10 @@ export function tamanoBebida(lista){
     if(floatRegex(lista)){
         return "Tamaño invalido, no puedes utilizar decimales";
     }
+    if(!onlyNumbers(lista)){
+        return "Tamaño invalido, no puedes utilizar letras";
+    }
     var arr = lista.split(",")
-    console.log(arr)
     var val = parseInt(arr[0]);
     if(arr.length < 6 && arr.length > 0){
         for(var i = 0; i < arr.length; i++){

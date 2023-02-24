@@ -40,7 +40,9 @@ describe('Tamaño de bebida invalido', () => {
     test('Lista con decimales', () => {
         expect(tamanoBebida("4, 3.4, 6, 2")).toBe("Tamaño invalido, no puedes utilizar decimales");  
     })
-    test('Li', () => { second })
+    test('Lista no numerica', () => {
+        expect(tamanoBebida("b, 3, 6, 3")).toBe("Tamaño invalido, no puedes utilizar letras");  
+    })
 })
 
 describe('Bebida valida', () => {
